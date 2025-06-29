@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@graphprotocol/hypergraph':
-        specifier: 0.0.8
-        version: 0.0.8(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)
+        specifier: 0.0.9
+        version: 0.0.9(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)
       '@graphprotocol/hypergraph-react':
-        specifier: 0.0.8
-        version: 0.0.8(@graphprotocol/hypergraph@0.0.8(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)
+        specifier: 0.0.9
+        version: 0.0.9(@graphprotocol/hypergraph@0.0.9(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)
       '@tailwindcss/vite':
         specifier: ^4.1.8
         version: 4.1.11(vite@6.3.5(@types/node@22.15.33)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3))
@@ -638,14 +638,14 @@ packages:
   '@graphprotocol/grc-20@0.21.3':
     resolution: {integrity: sha512-g9N25MRtJEher3OClvF2DV2OcnxaPmd0AhxhML6R++GMB7IjcSKX+At6flWCFRBbSphYN8VQsYlHDBzFoXA8zA==}
 
-  '@graphprotocol/hypergraph-react@0.0.8':
-    resolution: {integrity: sha512-ixBCE7+dFWSr8b6WAVjyL4qAvG1pdQZKHWd99hjPkPvO47++67usESVQhTO2bOpnLJ6PHWcnlJUzuLuVRaJLag==}
+  '@graphprotocol/hypergraph-react@0.0.9':
+    resolution: {integrity: sha512-k/iBI9ql0plLy8vJH4Q13Sd0u4dnShZLdYTik8HLBS6YU/fzNTC6cOWZ27vg57fwpn57H646psOde9EFbiRK8w==}
     peerDependencies:
       '@graphprotocol/hypergraph': '*'
       react: ^19.1.0
 
-  '@graphprotocol/hypergraph@0.0.8':
-    resolution: {integrity: sha512-o1kan0AXX0/6gyah3E9pFB5bgDtUfyWVH4MK3La3EHZGGcZumSbqyEZOe3DBRsYQ2Py0nGxeFqK6a8I7DFxfxQ==}
+  '@graphprotocol/hypergraph@0.0.9':
+    resolution: {integrity: sha512-OWcQ35SRNg7vQdA/BR/qFymx9oe1NEDmUeqwIRLbwGFHxfIauXJMCf/l53SnGHQml5O+ws+bqN6NKKVqOvB7Mw==}
 
   '@graphql-typed-document-node/core@3.2.0':
     resolution: {integrity: sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==}
@@ -3189,13 +3189,13 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@graphprotocol/hypergraph-react@0.0.8(@graphprotocol/hypergraph@0.0.8(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)':
+  '@graphprotocol/hypergraph-react@0.0.9(@graphprotocol/hypergraph@0.0.9(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)':
     dependencies:
       '@automerge/automerge': 2.2.9
       '@automerge/automerge-repo': 2.0.6
       '@automerge/automerge-repo-react-hooks': 2.0.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@graphprotocol/grc-20': 0.21.3(bufferutil@4.0.9)(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)
-      '@graphprotocol/hypergraph': 0.0.8(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)
+      '@graphprotocol/hypergraph': 0.0.9(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)
       '@noble/hashes': 1.8.0
       '@tanstack/react-query': 5.81.2(react@19.1.0)
       effect: 3.16.10
@@ -3215,7 +3215,7 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@graphprotocol/hypergraph@0.0.8(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)':
+  '@graphprotocol/hypergraph@0.0.9(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)':
     dependencies:
       '@automerge/automerge': 2.2.9
       '@automerge/automerge-repo': 2.0.6
