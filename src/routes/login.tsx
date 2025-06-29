@@ -11,7 +11,7 @@ function Login() {
             storage: localStorage,
             // connectUrl: 'http://localhost:5180',
             connectUrl: 'https://hypergraph-connect.vercel.app/',
-            successUrl: 'http://localhost:5173/authenticate-success',
+            successUrl: `${window.location.origin}/authenticate-success`,
             // hardcoded appId for testing
             appId: '93bb8907-085a-4a0e-83dd-62b0dc98e793',
             redirectFn: (url: URL) => {
