@@ -19,7 +19,7 @@ function RouteComponent() {
 
 function PrivateSpace() {
   const { name, ready } = useSpace({ mode: 'private' });
-  const { data: addresses } = useQuery(Address, { mode: 'private', include: { city: { include: { name: true } } } });
+  const { data: addresses } = useQuery(Address, { mode: 'private', include: { city: {} } });
   const createCity = useCreateEntity(City);
   const createAddress = useCreateEntity(Address);
   const [cityName, setCityName] = useState('');
