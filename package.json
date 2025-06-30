@@ -11,8 +11,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@graphprotocol/hypergraph": "0.0.9",
-    "@graphprotocol/hypergraph-react": "0.0.9",
+    "@graphprotocol/hypergraph": "0.0.10",
+    "@graphprotocol/hypergraph-react": "0.0.10",
     "@tailwindcss/vite": "^4.1.8",
     "@tanstack/react-query": "^5.79.2",
     "@tanstack/react-query-devtools": "^5.79.2",
