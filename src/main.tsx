@@ -2,6 +2,7 @@ import { HypergraphAppProvider } from '@graphprotocol/hypergraph-react';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { mapping } from './mapping';
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';
@@ -22,7 +23,7 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     // <React.StrictMode>
-    <HypergraphAppProvider mapping={{}}>
+    <HypergraphAppProvider mapping={mapping}>
       <RouterProvider router={router} />
     </HypergraphAppProvider>,
     // </React.StrictMode>,

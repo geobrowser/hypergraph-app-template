@@ -1,5 +1,14 @@
 import { Address, City } from '@/schema';
-import { HypergraphSpaceProvider, useCreateEntity, useQuery, useSpace } from '@graphprotocol/hypergraph-react';
+import {
+  HypergraphSpaceProvider,
+  preparePublish,
+  publishOps,
+  useCreateEntity,
+  useHypergraphApp,
+  useQuery,
+  useSpace,
+  useSpaces,
+} from '@graphprotocol/hypergraph-react';
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 
@@ -20,10 +29,13 @@ function RouteComponent() {
 function PrivateSpace() {
   const { name, ready } = useSpace({ mode: 'private' });
   const { data: addresses } = useQuery(Address, { mode: 'private', include: { city: {} } });
+  const { data: publicSpaces } = useSpaces({ mode: 'public' });
+  const [selectedSpace, setSelectedSpace] = useState<string>('');
   const createCity = useCreateEntity(City);
   const createAddress = useCreateEntity(Address);
   const [cityName, setCityName] = useState('');
   const [addressLine1, setAddressLine1] = useState('');
+  const { getSmartSessionClient } = useHypergraphApp();
 
   if (!ready) {
     return <div>Loading...</div>;
@@ -35,6 +47,31 @@ function PrivateSpace() {
     createAddress({ name: addressLine1, city: [cityId], addressLine1 });
     setCityName('');
     setAddressLine1('');
+  };
+
+  const publishToPublicSpace = async (address: Address) => {
+    if (!selectedSpace) {
+      alert('No space selected');
+      return;
+    }
+    try {
+      const { ops } = await preparePublish({ entity: address, publicSpace: selectedSpace });
+      const smartSessionClient = await getSmartSessionClient();
+      if (!smartSessionClient) {
+        throw new Error('Missing smartSessionClient');
+      }
+      const publishResult = await publishOps({
+        ops,
+        space: selectedSpace,
+        name: 'Publish Address',
+        walletClient: smartSessionClient,
+      });
+      console.log(publishResult, ops);
+      alert('Address published to public space');
+    } catch (error) {
+      console.error(error);
+      alert('Error publishing address to public space');
+    }
   };
 
   return (
@@ -52,11 +89,22 @@ function PrivateSpace() {
         <button type="submit">Create Address</button>
       </form>
 
-      {addresses?.map((address) => (
-        <div key={address.id}>
-          {address.name}, {address.city[0].name}
-        </div>
-      ))}
+      <ul>
+        {addresses?.map((address) => (
+          <li key={address.id}>
+            {address.name}, {address.city[0].name}
+            <select value={selectedSpace} onChange={(e) => setSelectedSpace(e.target.value)}>
+              <option value="">Select a space</option>
+              {publicSpaces?.map((space) => (
+                <option key={space.id} value={space.id}>
+                  {space.name}
+                </option>
+              ))}
+            </select>
+            <button onClick={() => publishToPublicSpace(address)}>Publish</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

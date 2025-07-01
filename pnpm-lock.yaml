@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@graphprotocol/grc-20':
+        specifier: ^0.21.3
+        version: 0.21.3(bufferutil@4.0.9)(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)
       '@graphprotocol/hypergraph':
         specifier: 0.0.10
         version: 0.0.10(@effect/platform@0.80.21(effect@3.16.10))(bufferutil@4.0.9)(ethers@5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(graphql@16.11.0)(ox@0.6.7(typescript@5.8.3)(zod@3.25.67))(react@19.1.0)(solid-js@1.9.7)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.25.67)

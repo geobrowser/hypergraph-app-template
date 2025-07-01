@@ -1,4 +1,5 @@
-import { HypergraphSpaceProvider, useSpace } from '@graphprotocol/hypergraph-react';
+import { Address } from '@/schema';
+import { HypergraphSpaceProvider, useQuery, useSpace } from '@graphprotocol/hypergraph-react';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/public-space/$space-id')({
@@ -16,7 +17,8 @@ function RouteComponent() {
 }
 
 function PublicSpace() {
-  const { ready, id } = useSpace({ mode: 'public' });
+  const { ready, id, name } = useSpace({ mode: 'public' });
+  const { data: addresses } = useQuery(Address, { mode: 'public' });
 
   if (!ready) {
     return <div>Loading...</div>;
@@ -24,8 +26,12 @@ function PublicSpace() {
 
   return (
     <div className="flex flex-col h-screen">
-      {/* <h1 className="text-2xl font-bold">{name}</h1> */}
-      Public space: {id}
+      <h1 className="text-2xl font-bold">{name}</h1>
+      <ul>
+        {addresses?.map((address) => (
+          <li key={address.id}>{address.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
