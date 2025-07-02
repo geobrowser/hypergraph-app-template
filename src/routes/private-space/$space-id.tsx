@@ -32,7 +32,7 @@ function PrivateSpace() {
   const { data: publicSpaces } = useSpaces({ mode: 'public' });
   const [selectedSpace, setSelectedSpace] = useState<string>('');
   const createAddress = useCreateEntity(Address);
-  const [addressLine1, setAddressLine1] = useState('');
+  const [addressName, setAddressName] = useState('');
   const { getSmartSessionClient } = useHypergraphApp();
 
   if (!ready) {
@@ -41,8 +41,8 @@ function PrivateSpace() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createAddress({ name: addressLine1, addressLine1 });
-    setAddressLine1('');
+    createAddress({ name: addressName, description: 'Beautiful address' });
+    setAddressName('');
   };
 
   const publishToPublicSpace = async (address: Address) => {
@@ -76,7 +76,7 @@ function PrivateSpace() {
       <form onSubmit={handleSubmit}>
         <label className="flex flex-col">
           <span className="text-sm font-bold">Address</span>
-          <input type="text" value={addressLine1} onChange={(e) => setAddressLine1(e.target.value)} />
+          <input type="text" value={addressName} onChange={(e) => setAddressName(e.target.value)} />
         </label>
         <button type="submit">Create Address</button>
       </form>
