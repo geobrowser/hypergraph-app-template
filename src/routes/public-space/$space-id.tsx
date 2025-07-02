@@ -17,7 +17,7 @@ function RouteComponent() {
 }
 
 function PublicSpace() {
-  const { ready, id, name } = useSpace({ mode: 'public' });
+  const { ready, name } = useSpace({ mode: 'public' });
   const { data: addresses } = useQuery(Address, { mode: 'public' });
 
   if (!ready) {

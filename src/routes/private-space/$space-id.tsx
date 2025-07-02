@@ -1,4 +1,4 @@
-import { Address, City } from '@/schema';
+import { Address } from '@/schema';
 import {
   HypergraphSpaceProvider,
   preparePublish,
@@ -28,12 +28,10 @@ function RouteComponent() {
 
 function PrivateSpace() {
   const { name, ready } = useSpace({ mode: 'private' });
-  const { data: addresses } = useQuery(Address, { mode: 'private', include: { city: {} } });
+  const { data: addresses } = useQuery(Address, { mode: 'private' });
   const { data: publicSpaces } = useSpaces({ mode: 'public' });
   const [selectedSpace, setSelectedSpace] = useState<string>('');
-  const createCity = useCreateEntity(City);
   const createAddress = useCreateEntity(Address);
-  const [cityName, setCityName] = useState('');
   const [addressLine1, setAddressLine1] = useState('');
   const { getSmartSessionClient } = useHypergraphApp();
 
@@ -43,9 +41,7 @@ function PrivateSpace() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { id: cityId } = createCity({ name: cityName, description: 'Beautiful city' });
-    createAddress({ name: addressLine1, city: [cityId], addressLine1 });
-    setCityName('');
+    createAddress({ name: addressLine1, addressLine1 });
     setAddressLine1('');
   };
 
@@ -79,10 +75,6 @@ function PrivateSpace() {
       <h1 className="text-2xl font-bold">{name}</h1>
       <form onSubmit={handleSubmit}>
         <label className="flex flex-col">
-          <span className="text-sm font-bold">City</span>
-          <input type="text" value={cityName} onChange={(e) => setCityName(e.target.value)} />
-        </label>
-        <label className="flex flex-col">
           <span className="text-sm font-bold">Address</span>
           <input type="text" value={addressLine1} onChange={(e) => setAddressLine1(e.target.value)} />
         </label>
@@ -92,7 +84,7 @@ function PrivateSpace() {
       <ul>
         {addresses?.map((address) => (
           <li key={address.id}>
-            {address.name}, {address.city[0].name}
+            {address.name}
             <select value={selectedSpace} onChange={(e) => setSelectedSpace(e.target.value)}>
               <option value="">Select a space</option>
               {publicSpaces?.map((space) => (
