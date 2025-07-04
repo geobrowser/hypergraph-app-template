@@ -1,6 +1,7 @@
-import { useHypergraphApp, useHypergraphAuth } from '@graphprotocol/hypergraph-react';
+import { useHypergraphApp, useHypergraphAuth, HypergraphSpaceProvider } from '@graphprotocol/hypergraph-react';
 import { createRootRoute, Link, Outlet, useLayoutEffect, useRouter } from '@tanstack/react-router';
 import { Logout } from '../components/logout';
+import { Gallery } from '../components/gallery';
 
 const Root = () => {
   const { authenticated } = useHypergraphAuth();
@@ -36,7 +37,7 @@ const Root = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-900 text-white p-4">
+      <div className="min-h-screen bg-white text-gray-900 p-4">
         <div className="flex justify-between items-center">
           <Link to="/">My Hypergraph App</Link>
           {authenticated ? (
@@ -47,6 +48,10 @@ const Root = () => {
             </button>
           )}
         </div>
+        <h2>All projects</h2>
+        <HypergraphSpaceProvider space="b2565802-3118-47be-91f2-e59170735bac">
+          <Gallery />
+        </HypergraphSpaceProvider>
         <Outlet />
       </div>
     </>
