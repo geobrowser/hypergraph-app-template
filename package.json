@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@graphprotocol/grc-20": "^0.21.3",
-    "@graphprotocol/hypergraph": "0.0.11",
-    "@graphprotocol/hypergraph-react": "0.0.11",
+    "@graphprotocol/hypergraph": "0.0.12",
+    "@graphprotocol/hypergraph-react": "0.0.12",
     "@tailwindcss/vite": "^4.1.8",
     "@tanstack/react-query": "^5.79.2",
     "@tanstack/react-query-devtools": "^5.79.2",
