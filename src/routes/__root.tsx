@@ -1,6 +1,5 @@
 import { useHypergraphAuth } from '@graphprotocol/hypergraph-react';
 import { createRootRoute, Link, Outlet, useLayoutEffect, useRouter } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import { Logout } from '../components/logout';
 
 const Root = () => {
@@ -26,13 +25,11 @@ const Root = () => {
     <>
       <div className="min-h-screen bg-gray-900 text-white p-4">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold mb-4">My Hypergraph App</h1>
-          <Link to="/">Home</Link>
+          <Link to="/">My Hypergraph App</Link>
           <Logout />
         </div>
         <Outlet />
       </div>
-      <TanStackRouterDevtools />
     </>
   );
 };
