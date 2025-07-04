@@ -14,7 +14,7 @@ export function Logout() {
   };
 
   return (
-    <button type="button" onClick={handleLogout} disabled={!authenticated}>
+    <button type="button" className="btn" onClick={handleLogout} disabled={!authenticated}>
       Logout
     </button>
   );
