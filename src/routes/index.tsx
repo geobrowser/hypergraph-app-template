@@ -26,7 +26,10 @@ function Index() {
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-8">
         <img src="/hypergraph.svg" alt="Hypergraph Logo" className="w-24 h-24 mx-auto mb-4" />
-        <h1 className="text-3xl font-bold mb-2">Welcome to Hypergraph</h1>
+        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Welcome to Hypergraph
+        </h1>
+
         <p className="text-lg text-muted-foreground">Your web3 app template powered by Hypergraph</p>
       </div>
 
