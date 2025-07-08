@@ -7,9 +7,10 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Tooltip, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useHypergraphApp, useHypergraphAuth } from '@graphprotocol/hypergraph-react';
 import { Link, useRouter } from '@tanstack/react-router';
+import { SpacesMenu } from './spaces-menu';
 
 export function Navbar() {
   const { authenticated } = useHypergraphAuth();
@@ -54,49 +55,23 @@ export function Navbar() {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <div>
-                        <NavigationMenuTrigger disabled={!authenticated}>My Spaces</NavigationMenuTrigger>
+                        <NavigationMenuTrigger>My Spaces</NavigationMenuTrigger>
                       </div>
                     </TooltipTrigger>
-                    {!authenticated && (
-                      <TooltipContent>
-                        <p className="p-2 text-center leading-relaxed text-gray-500">
+                  </Tooltip>
+                  {authenticated ? (
+                    <SpacesMenu />
+                  ) : (
+                    <NavigationMenuContent>
+                      <div className="w-[240px] py-4 text-center text-muted-foreground">
+                        <p>
                           Sign in to access your
                           <br />
                           private and public spaces
                         </p>
-                      </TooltipContent>
-                    )}
-                  </Tooltip>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[200px] gap-3 p-4">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to="/"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="text-sm font-medium leading-none">My Private Spaces</div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Access your private spaces
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to="/"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="text-sm font-medium leading-none">My Public Spaces</div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              Access your public spaces
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
+                      </div>
+                    </NavigationMenuContent>
+                  )}
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
