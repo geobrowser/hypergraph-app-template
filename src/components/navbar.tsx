@@ -7,7 +7,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
-import { Tooltip, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { useHypergraphApp, useHypergraphAuth } from '@graphprotocol/hypergraph-react';
 import { Link, useRouter } from '@tanstack/react-router';
 import { SpacesMenu } from './spaces-menu';
@@ -38,10 +38,10 @@ export function Navbar() {
 
   return (
     <TooltipProvider>
-      <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative z-[9998]">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            <NavigationMenu>
+            <NavigationMenu viewport={false}>
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <Link to="/">
@@ -60,13 +60,7 @@ export function Navbar() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <div>
-                        <NavigationMenuTrigger>My Spaces</NavigationMenuTrigger>
-                      </div>
-                    </TooltipTrigger>
-                  </Tooltip>
+                  <NavigationMenuTrigger>My Spaces</NavigationMenuTrigger>
                   {authenticated ? (
                     <SpacesMenu />
                   ) : (
