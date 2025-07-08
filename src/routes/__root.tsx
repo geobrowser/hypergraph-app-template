@@ -24,14 +24,12 @@ const Root = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-900 text-white p-4">
-        <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold mb-4">My Hypergraph App</h1>
-          <Link to="/">Home</Link>
-          <Logout />
-        </div>
-        <Outlet />
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold mb-4">My Hypergraph App</h1>
+        <Link to="/">Home</Link>
+        <Logout />
       </div>
+      <Outlet />
       <TanStackRouterDevtools />
     </>
   );
