@@ -5,7 +5,10 @@ function Login() {
   const { redirectToConnect } = useHypergraphApp();
   return (
     <div className="flex flex-1 justify-center items-center flex-col gap-4">
+      <h1 className="text-2xl font-bold mb-4">Welcome to My Hypergraph App</h1>
+      <p className="text-muted-foreground mb-6">Sign in to access your spaces and start building.</p>
       <button
+        className="px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
         onClick={() => {
           redirectToConnect({
             storage: localStorage,
