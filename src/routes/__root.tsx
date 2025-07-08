@@ -1,20 +1,22 @@
 import { useHypergraphAuth } from '@graphprotocol/hypergraph-react';
-import { createRootRoute, Link, Outlet, useLayoutEffect, useRouter } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
-import { Logout } from '../components/logout';
+import { createRootRoute, Outlet, useLayoutEffect, useRouter } from '@tanstack/react-router';
+import { Navbar } from '../components/navbar';
 
 const Root = () => {
   const { authenticated } = useHypergraphAuth();
   const router = useRouter();
 
   useLayoutEffect(() => {
+    // Don't redirect on login or authenticate-success pages
     if (
       router.state.location.href.startsWith('/login') ||
-      router.state.location.href.startsWith('/authenticate-success')
+      router.state.location.href.startsWith('/authenticate-success') ||
+      router.state.location.href.startsWith('/')
     ) {
       return;
     }
 
+    // Only redirect to login if not authenticated and not already on login page
     if (!authenticated) {
       router.navigate({
         to: '/login',
@@ -24,15 +26,10 @@ const Root = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-900 text-white p-4">
-        <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold mb-4">My Hypergraph App</h1>
-          <Link to="/">Home</Link>
-          <Logout />
-        </div>
+      <Navbar />
+      <main className="container mx-auto px-4 py-6">
         <Outlet />
-      </div>
-      <TanStackRouterDevtools />
+      </main>
     </>
   );
 };
