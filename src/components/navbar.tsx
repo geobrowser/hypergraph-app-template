@@ -40,14 +40,6 @@ export function Navbar() {
       <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            {/* Logo/Brand */}
-            <div className="flex items-center space-x-4">
-              <Link to="/" className="text-xl font-bold">
-                My Hypergraph App
-              </Link>
-            </div>
-
-            {/* Navigation Menu */}
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -67,7 +59,11 @@ export function Navbar() {
                     </TooltipTrigger>
                     {!authenticated && (
                       <TooltipContent>
-                        <p>Sign in to access your private and public spaces</p>
+                        <p className="p-2 text-center leading-relaxed text-gray-500">
+                          Sign in to access your
+                          <br />
+                          private and public spaces
+                        </p>
                       </TooltipContent>
                     )}
                   </Tooltip>
