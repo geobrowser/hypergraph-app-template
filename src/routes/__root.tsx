@@ -10,7 +10,8 @@ const Root = () => {
     // Don't redirect on login or authenticate-success pages
     if (
       router.state.location.href.startsWith('/login') ||
-      router.state.location.href.startsWith('/authenticate-success')
+      router.state.location.href.startsWith('/authenticate-success') ||
+      router.state.location.href.startsWith('/')
     ) {
       return;
     }
