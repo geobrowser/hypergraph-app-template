@@ -11,9 +11,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@graphprotocol/grc-20": "^0.21.3",
-    "@graphprotocol/hypergraph": "0.0.12",
-    "@graphprotocol/hypergraph-react": "0.0.12",
+    "@graphprotocol/grc-20": "^0.21.6",
+    "@graphprotocol/hypergraph": "0.0.14",
+    "@graphprotocol/hypergraph-react": "0.0.14",
     "@radix-ui/react-navigation-menu": "^1.2.13",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tooltip": "^1.2.7",
