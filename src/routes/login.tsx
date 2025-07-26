@@ -1,8 +1,24 @@
-import { useHypergraphApp } from '@graphprotocol/hypergraph-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { useHypergraphApp, useHypergraphAuth } from '@graphprotocol/hypergraph-react';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { useEffect } from 'react';
 
 function Login() {
   const { redirectToConnect } = useHypergraphApp();
+  const { authenticated } = useHypergraphAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // If user is already authenticated, redirect to home page
+    if (authenticated) {
+      navigate({ to: '/' });
+    }
+  }, [authenticated, navigate]);
+
+  // Don't render the login form if user is already authenticated
+  if (authenticated) {
+    return null;
+  }
+
   return (
     <div className="flex items-center justify-center">
       <div className="flex flex-col items-center gap-6 p-8 text-center">
