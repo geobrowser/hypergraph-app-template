@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { useHypergraphApp } from '@graphprotocol/hypergraph-react';
+import { useHypergraphApp, useHypergraphAuth } from '@graphprotocol/hypergraph-react';
 import { createFileRoute, Link } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/')({
@@ -8,6 +8,7 @@ export const Route = createFileRoute('/')({
 
 function Index() {
   const { redirectToConnect } = useHypergraphApp();
+  const { authenticated } = useHypergraphAuth();
 
   const handleSignIn = () => {
     redirectToConnect({
@@ -30,7 +31,7 @@ function Index() {
         <p className="text-lg text-muted-foreground">Your web3 app template powered by Hypergraph</p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className={`grid gap-8 max-w-6xl mx-auto ${authenticated ? 'md:grid-cols-2' : 'md:grid-cols-3'}`}>
         {/* Section 1: Explore existing public knowledge */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700">
           <div className="text-center">
@@ -61,33 +62,35 @@ function Index() {
           </div>
         </div>
 
-        {/* Section 2: Sign in with Geo Connect */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-          <div className="text-center">
-            <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <svg
-                className="w-6 h-6 text-gray-400 dark:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
+        {/* Section 2: Sign in with Geo Connect - Only show when not authenticated */}
+        {!authenticated && (
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg
+                  className="w-6 h-6 text-gray-400 dark:text-gray-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Manage Your Data</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Sign in with Geo Connect to manage your private data and publish it to the public Knowledge Graph.
+              </p>
+              <Button onClick={handleSignIn} className="w-full bg-primary hover:bg-primary/90">
+                Sign in with Geo Connect
+              </Button>
             </div>
-            <h3 className="text-xl font-semibold mb-3">Manage Your Data</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Sign in with Geo Connect to manage your private data and publish it to the public Knowledge Graph.
-            </p>
-            <Button onClick={handleSignIn} className="w-full bg-primary hover:bg-primary/90">
-              Sign in with Geo Connect
-            </Button>
           </div>
-        </div>
+        )}
 
         {/* Section 3: Explore the docs */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-gray-700">

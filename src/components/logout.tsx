@@ -9,7 +9,7 @@ export function Logout() {
   const handleLogout = () => {
     logout();
     router.navigate({
-      to: '/login',
+      to: '/',
     });
   };
 
